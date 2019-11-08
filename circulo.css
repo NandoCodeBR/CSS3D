@@ -1,0 +1,148 @@
+body{
+    /*Transforma o display em flex, alinha tudo para o centro
+    e transforma o background em branco */
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #cccccc;
+}
+.loader{
+    /*Agora vamos codificar a parte 3d.
+    Colocamos numa posição relativa e transformamos a DIV em um objeto 3D
+    E então colocamos a perspectiva (que pode ser o seu "tamanho") e então a sua rotação X Y Z*/
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    transform: perspective(500px) rotateX(0deg) rotateY(180deg) rotateZ(0deg);
+}
+.loader span{
+    /*Colocamos uma posição absoluta e então transformamos a borda em círculos colocando o border-radius em 50%
+    (Coloque o border-radius para 0% caso você queira quadrados)*/
+    position: absolute;
+    display: block;
+    border: 5px solid;
+    box-sizing: border-box;
+    border-radius: 50%;
+    /*Chamamos a animação, duração de 3s infinito e função linear*/
+    animation: animateX 3s infinite;
+    animation-timing-function: linear;
+    
+}
+@keyframes animateX {
+    0%{
+      
+    }
+    50%{
+      
+
+    }
+    100%{
+        /*Rotação de 360 graus para dar uma volta*/
+        transform:  rotateX(360deg);
+        
+    }
+}
+
+@keyframes animateY {
+    100%{
+        transform: rotateY(360deg);
+    }
+
+}
+@keyframes animateXReverse {
+
+    100%{
+        transform: rotateX(-360deg) ;
+    }
+
+}
+@keyframes animateYReverse {
+    100%{
+        /*rotação de -360 graus para dar uma volta reversa
+        Caso não queira usar a animação, basta usar a propriedade Reverse quando chamar a animação animateY*/
+        transform: rotateY(-360deg);
+    }
+
+
+}
+.loader span:nth-child(1){
+    /*É NECESSÁRIO UM NTH-CHILD PARA CADA SPAN
+    -------------------------------------------
+    Colocamos a posição da borda, como se fosse o seu raio
+    */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* animation-delay: 0.8s; */
+    /*Colocamos uma cor para identificar cada child visualmente
+    Chamamos a animação */
+    border-color: green;
+    animation: animateY 3s linear infinite;
+}
+.loader span:nth-child(2){
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    /* animation-delay: 0.7s; */
+    border-color: blue;
+    animation: animateYReverse 3s linear infinite;
+}
+.loader span:nth-child(3){
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+    /* animation-delay: 0.6s; */
+    border-color: yellow;
+}
+.loader span:nth-child(4){
+    top: 30px;
+    left: 30px;
+    bottom: 30px;
+    right: 30px;
+    /* animation-delay: 0.5s; */
+    border-color: orange;
+    animation: animateY 3s linear infinite alternate;
+}
+.loader span:nth-child(5){
+    top: 40px;
+    left: 40px;
+    bottom: 40px;
+    right: 40px;
+    /* animation-delay: 0.4s; */
+    border-color: red;
+}
+.loader span:nth-child(6){
+    top: 50px;
+    left: 50px;
+    bottom: 50px;
+    right: 50px;
+    /* animation-delay: 0.3s; */
+    border-color: violet;
+    animation: animateXReverse 3s linear infinite;
+}
+.loader span:nth-child(7){
+    top: 60px;
+    left: 60px;
+    bottom: 60px;
+    right: 60px;
+    /* animation-delay: 0.2s; */
+    border-color: blueviolet;
+    animation: animateY 3s linear infinite;
+    
+}
+.loader span:nth-child(8){
+    top: 70px;
+    left: 70px;
+    bottom: 70px;
+    right: 70px;
+    /* animation-delay: 0.1s;   */
+    border-color: cyan;
+
+}
